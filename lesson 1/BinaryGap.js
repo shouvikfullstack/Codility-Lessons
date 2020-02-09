@@ -5,8 +5,9 @@ function solution(N) {
   let gap = 0;
   let finalGap = 0;
   let oneFound = false;
-  let binary = N.toString(2)
-  binary = binary.toString()
+  let binary = N.toString(2);
+  console.log(binary);
+  binary = binary.toString();
   binary.split('').forEach(el => {
     if(el == '1') {
       if(!oneFound) {
@@ -15,14 +16,15 @@ function solution(N) {
         if(gap > finalGap) {
           finalGap = gap;
           gap = 0;
+        } else {
+          gap = 0;
         }
       }
-    }
-    if(el == '0' && oneFound) {
+    } else if(el == '0' && oneFound) {
       gap++
     }
   });
   return finalGap;
 }
 
-console.log(solution(1376796946));
+console.log(solution(561892));
